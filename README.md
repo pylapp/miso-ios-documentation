@@ -11,7 +11,7 @@
   ·
   <a href="https://github.com/pylapp/miso-ios" title="MISO iOS Swift Package GitHub project">Swift Package</a>
   ·
-  <a href="https://github.com/pylapp/miso-ios-demo" title="Design toolbox GitHub project">Design system toolbox</a>
+  <a href="https://github.com/pylapp/miso-ios-demo" title="Demo app GitHub project">Demo app</a>
 </p>
 
 ## ⚙️ Status
@@ -28,9 +28,9 @@
 
 ## 🔒 Data and privacy
 
-The MISO library is a Software Development Kit (SDK) that allows developpers to create iOS apps.
+The MISO library is a Software Development Kit (SDK) that helps developers to create iOS apps.
 As such:
-- this SDK does not handle any personnal data
+- this SDK does not handle any personal data
 - this SDK does not require any device permission to work
 
 ## ⚖️ Copyright and license
