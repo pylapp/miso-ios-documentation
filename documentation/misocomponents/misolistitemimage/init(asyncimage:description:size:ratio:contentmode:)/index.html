@@ -1,0 +1,17 @@
+<!doctype html><html lang="en-US" class="no-js"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><link rel="icon" href="/favicon.ico"><link rel="mask-icon" href="/favicon.svg" color="#333333"><title>init(asyncImage:description:size:ratio:contentMode:)</title><script>var baseUrl = "/"</script><script defer="defer" src="/js/chunk-vendors.0b7dc663.js"></script><script defer="defer" src="/js/index.b232e9de.js"></script><link href="/css/index.19043b1e.css" rel="stylesheet"><meta content="Creates an icon element for use in a list item at the leading or trailing position with an async image." name="description"/></head><body data-color-scheme="auto"><noscript><article><section><ul><li><a href="../../index.html">Components</a></li><li><a href="../index.html">MISOListItemImage</a></li><li>init(asyncImage:description:size:ratio:contentMode:)</li></ul><p>Initializer</p><h1>init(asyncImage:description:size:ratio:contentMode:)</h1><p>Creates an icon element for use in a list item at the leading or trailing position with an async image.</p><ul id="availability"><li>iOS 15.0+</li><li>macOS 13.0+</li><li>tvOS 16.0+</li><li>visionOS 1.0+</li><li>watchOS 11.0+</li></ul><pre><code>@MainActor init(asyncImage: MISOAsyncImage&lt;some View&gt;, description: String? = nil, size: MISOListItemImage.Size = .medium, ratio: MISOListItemImage.Ratio = .square, contentMode: ContentMode = .fit)</code></pre></section><h2>Parameters</h2><dl><dt>asyncImage</dt><dd><p>The async image to load (created with <a href="../../misoasyncimage/index.html"><code>MISOAsyncImage</code></a>)</p></dd><dt>description</dt><dd><p>The description of the image for accessibility</p></dd><dt>size</dt><dd><p>The size of the icon. Defaults to <code>.medium</code>. <b>Note:</b> Ignored when the icon is embedded in a list item with small size (via <a href="../../swiftuicore/view/misolistitemsize(_:)/index.html"><code>misoListItemSize(_:)</code></a>), where the smallest size is always applied.</p></dd><dt>ratio</dt><dd><p>Ratio of the image. By default a <code>square</code> image.</p></dd><dt>contentMode</dt><dd><p>A flag indicating whether this view should fit or fill the parent context. Default set to <code>.fit</code>.</p></dd></dl><h2>Discussion</h2><pre class="swift"><code>    // Async image from URL
+    MISOListItemImage(asyncImage: MISOAsyncImage(url: URL(string: "https://example.com/image.png")), description: "A remote image")
+
+    // Async image with large size
+    MISOListItemImage(asyncImage: MISOAsyncImage(url: URL(string: "https://example.com/image.png")), description: "A remote image", size: .large)
+
+    // Async image with custom content and placeholder
+    MISOListItemImage(
+        asyncImage: MISOAsyncImage(url: URL(string: "https://example.com/image.png")) { image in
+            image.resizable()
+        } placeholder: {
+            ProgressView()
+        },
+        description: "A remote image",
+        size: .medium
+    )
+</code></pre></article></noscript><div id="app"></div></body></html>

@@ -1,0 +1,56 @@
+<!doctype html><html lang="en-US" class="no-js"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><link rel="icon" href="/favicon.ico"><link rel="mask-icon" href="/favicon.svg" color="#333333"><title>MISOStaticListItem</title><script>var baseUrl = "/"</script><script defer="defer" src="/js/chunk-vendors.0b7dc663.js"></script><script defer="defer" src="/js/index.b232e9de.js"></script><link href="/css/index.19043b1e.css" rel="stylesheet"><meta content="A list item component used to display a row of static (non-interactive, non-navigable) content within a list." name="description"/></head><body data-color-scheme="auto"><noscript><article><section><ul><li><a href="../index.html">Components</a></li><li>MISOStaticListItem</li></ul><p>Structure</p><h1>MISOStaticListItem</h1><p>A list item component used to display a row of static (non-interactive, non-navigable) content within a list.</p><ul id="availability"><li>iOS 15.0+</li><li>macOS 13.0+</li><li>tvOS 16.0+</li><li>visionOS 1.0+</li><li>watchOS 11.0+</li></ul><pre><code>@MainActor struct MISOStaticListItem</code></pre></section><h2>Mentioned In</h2><ul><li><a href="../navigations/index.html">Navigations</a></li></ul><h2>Overview</h2><p><a href="."><code>MISOStaticListItem</code></a> typically contains a label, and optionally a description, an overline, an extra label, a text slot, a bottom slot, and a helper text — all provided through <a href="../misolistitemdata/index.html"><code>MISOListItemData</code></a>. It can also include an optional leading element (such as an icon, image, avatar, flag or custom view) and an optional trailing element (such as a text, badge, tag, icon, image, avatar, flag or custom view).</p><p>Use this component when the list item should only display information without triggering any navigation or action. For navigable list items, see <a href="../misonavigationlistitem/index.html"><code>MISONavigationListItem</code></a>.</p><h2>Code samples</h2><pre class="swift"><code>    // Simple list item with a label only
+    MISOStaticListItem(data: MISOListItemData(label: "Label"))
+
+    // List item with more textual content
+    let data = MISOListItemData(
+        label: "Label",
+        description: "Description",
+        overline: "Overline",
+        extraLabel: "Extra Label"
+    )
+    MISOStaticListItem(data: data)
+
+    // List item with leading icon and trailing badge
+    MISOStaticListItem(
+        data: MISOListItemData(label: "Label"),
+        leading: .icon(.init(type: .info, size: .medium)),
+        trailing: .badge(.count(.init(3, accessibilityLabel: "3 notifications", status: .negative, size: .medium)))
+    )
+
+    // List item with avatar as leading and text as trailing
+    MISOStaticListItem(
+        data: MISOListItemData(label: "Label", description: "Description"),
+        leading: .avatar(.init(type: .icon, size: .medium)),
+        trailing: .text(.label("Info"))
+    )
+
+    // List item with a custom view as trailing, e.g. a gauge showing a remaining SMS credit
+    MISOStaticListItem(
+        data: MISOListItemData(label: "SMS credit"),
+        trailing: .custom {
+            MISOCircularProgressIndicator(progress: 0.75)
+        }
+    )
+
+    // List item with slot (displayed under texts, before helper text)
+    MISOStaticListItem(
+        data: MISOListItemData(
+            label: "Label",
+            textSlot: { Text("Additional content") },
+            helperText: "Helper text"
+        )
+    )
+
+    // List item with bottomSlot (displayed under main content, before helper text)
+    MISOStaticListItem(
+        data: MISOListItemData(
+            label: "Label",
+            bottomSlot: { Text("Bottom content") },
+            helperText: "Helper text"
+        )
+    )
+</code></pre><h2>Leading elements</h2><p>The leading position (before the texts) accepts one optional element via <a href="../misolistitemleading/index.html"><code>MISOListItemLeading</code></a>:</p><ul><li><p><code>.icon(MISOListItemIcon)</code>: A status or custom icon (neutral, info, warning, negative, positive)</p></li><li><p><code>.image(MISOListItemImage)</code>: A static image asset</p></li><li><p><code>.flag(MISOListItemFlag)</code>: A country flag image</p></li><li><p><code>.avatar(MISOListItemAvatar)</code>: An avatar with icon, initials, or image</p></li><li><p><code>.slot { ... }</code>: Any custom SwiftUI view</p></li></ul><h2>Trailing elements</h2><p>The trailing position (after the texts) accepts one optional element via <a href="../misolistitemtrailing/index.html"><code>MISOListItemTrailing</code></a>, like:</p><ul><li><p><code>.text(.label(String))</code>: A default-styled label</p></li><li><p><code>.text(.labelMuted(String))</code>: A muted (secondary) label</p></li><li><p><code>.text(.labelStrong(String))</code>: An emphasized (bold) label</p></li><li><p><code>.text(.labelAndExtraLabel(String, String))</code>: A label with an additional extra label below</p></li><li><p><code>.badge(.count(MISOBadgeCount))</code>: A badge with count</p></li><li><p><code>.badge(.standard(MISOBadgeStandard))</code>: A badge with standard status</p></li><li><p><code>.tag(MISOTag)</code>: A tag for categorization</p></li><li><p><code>.icon(MISOListItemIcon)</code>: A status or custom icon</p></li><li><p><code>.image(MISOListItemImage)</code>:  A static image asset</p></li><li><p><code>.flag(MISOListItemFlag)</code>: A country flag image</p></li><li><p><code>.avatar(MISOListItemAvatar)</code>: An avatar with icon, initials, or image</p></li><li><p><code>.slot { ... }</code>: Any custom SwiftUI view</p></li></ul><h2>View modifiers</h2><p>Several view modifiers can be applied to customize the appearance and layout of list items:</p><ul><li><p><a href="../swiftuicore/view/misolistitemsize(_:)/index.html"><code>misoListItemSize(_:)</code></a> — Sets the size of the item (<code>.standard</code> or <code>.small</code>).</p></li><li><p><a href="../swiftuicore/view/misolistitemcontaineralignment(_:)/index.html"><code>misoListItemContainerAlignment(_:)</code></a> — Aligns leading, trailing, and text containers (<code>.top</code> or <code>.center</code>).</p></li><li><p><a href="../swiftuicore/view/misolistitemstyle(divider:background:)/index.html"><code>misoListItemStyle(divider:background:)</code></a> — Applies a item style with optional divider and background.</p></li><li><p><a href="../swiftuicore/view/misolistcardstyle(_:)/index.html"><code>misoListCardStyle(_:)</code></a> — Applies a card style on list items.</p></li><li><p><a href="../swiftuicore/view/misolistitemroundedmedia(_:)/index.html"><code>misoListItemRoundedMedia(_:)</code></a> — Defines whether media (images) should be displayed with rounded corners.</p></li></ul><pre class="swift"><code>    MISOStaticListItem(data: MISOListItemData(label: "Label"))
+        .misoListItemSize(.small)
+        .misoListItemContainerAlignment(.top)
+        .misoListCardStyle(.outlined())
+</code></pre><h2>Accessibility considerations</h2><p>You should test with Voice Over your <code>MISOStaticListItem</code> to check which parts are vocalized and if they are well vocalized, specially for the avatars, badges, tags and slot views.  Do not vocalize decorative elements.</p><p>If flags are used, do not suppose users know the flags and add in the texts parts of the <code>MISOStaticListItem</code> the country or region name.</p><blockquote class="aside version"><p class="label">Version</p><p>1.0.0 (Figma component design version)</p></blockquote><blockquote class="aside since"><p class="label">Since</p><p>OUDS 3.0.0</p></blockquote><h2>Topics</h2><h3>Initializers</h3><ul><li><a href="init(data:leading:trailing:)/index.html"><code>init(data: MISOListItemData, leading: MISOListItemLeading?, trailing: MISOListItemTrailing?)</code><p>Creates a list item to display static data, without interaction or navigation.</p></a></li></ul><h3>Instance Properties</h3><ul><li><a href="body/index.html"><code>var body: some View</code></a></li></ul></article></noscript><div id="app"></div></body></html>

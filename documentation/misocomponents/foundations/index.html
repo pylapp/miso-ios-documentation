@@ -1,0 +1,20 @@
+<!doctype html><html lang="en-US" class="no-js"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><link rel="icon" href="/favicon.ico"><link rel="mask-icon" href="/favicon.svg" color="#333333"><title>Foundations</title><script>var baseUrl = "/"</script><script defer="defer" src="/js/chunk-vendors.0b7dc663.js"></script><script defer="defer" src="/js/index.b232e9de.js"></script><link href="/css/index.19043b1e.css" rel="stylesheet"><meta content="Some components can be used for typography." name="description"/></head><body data-color-scheme="auto"><noscript><article><section><ul><li><a href="../index.html">Components</a></li><li>Foundations</li></ul><p>Article</p><h1>Foundations</h1><p>Some components can be used for <b>typography</b>.</p></section><h2>Overview</h2><p>The <b>Foundations</b> family gathers primitive building blocks of the design system. Today it exposes the <i>Typography</i> components.</p><h3>Typography</h3><p>Typography components render text using the semantic font tokens exposed by the current theme. They are the recommended way to display text inside your app since they automatically apply the right font elements. There are 5 types: <a href="../misodisplay/index.html"><code>MISODisplay</code></a>, <a href="../misoheading/index.html"><code>MISOHeading</code></a>, <a href="../misobody/index.html"><code>MISOBody</code></a>, <a href="../misolabel/index.html"><code>MISOLabel</code></a> and <a href="../misocode/index.html"><code>MISOCode</code></a>.</p><pre class="swift"><code>// Display
+MISODisplay(text: "Woy!")
+MISODisplay(text: "Woy!", size: .medium)
+
+// Heading
+MISOHeading(text: "Section title", size: .large, hasMarker: true)
+MISOHeading(text: "Welcome to MISO", coloredText: "MISO")
+MISOHeading(LocalizedStringKey("section_title"), bundle: Bundle.module, size: .xLarge)
+
+// Body
+MISOBody(text: "This is the black collar song...")
+MISOBody(text: "This is the black collar song...", size: .large, weight: .strong)
+
+// Label
+MISOLabel(text: "Label")
+MISOLabel(text: "Label", size: .xLarge, weight: .moderate)
+
+// Code
+MISOCode(text: "let x = 42")
+</code></pre></article></noscript><div id="app"></div></body></html>

@@ -1,0 +1,28 @@
+<!doctype html><html lang="en-US" class="no-js"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><link rel="icon" href="/favicon.ico"><link rel="mask-icon" href="/favicon.svg" color="#333333"><title>MISOButtonInteractionState</title><script>var baseUrl = "/"</script><script defer="defer" src="/js/chunk-vendors.0b7dc663.js"></script><script defer="defer" src="/js/index.b232e9de.js"></script><link href="/css/index.19043b1e.css" rel="stylesheet"><meta content="The interaction state used by modifiers to handle all states of the indicator. Any MISO components should manage all these cases." name="description"/></head><body data-color-scheme="auto"><noscript><article><section><ul><li><a href="../index.html">Components</a></li><li>MISOButtonInteractionState</li></ul><p>Enumeration</p><h1>MISOButtonInteractionState</h1><p>The interaction state used by modifiers to handle all states of the indicator. Any MISO components should manage all these cases.</p><pre><code>@frozen enum MISOButtonInteractionState</code></pre></section><h2>Overview</h2><p>The <code>readOnly</code> state primes over all. Then <code>disabled</code> state, <code>pressed</code>, <code>hover</code> and in the end <code>enabled</code></p><h2>Code samples</h2><pre class="swift"><code>struct MyTappableComponentButtonStyle: ButtonStyle {
+
+    @State private var isHover: Bool
+    @Environment(\.isEnabled) private var isEnabled
+
+    func makeBody(configuration: Configuration) -&gt; some View {
+        // isEnabled: picked from environment object / SwiftUI layer
+        // isHover: from API callback on some OS
+        // isPressed: from ButtonStyle SwiftUI API
+        let interactionState = MISOButtonInteractionState(isEnabled: isEnabled, isHover: isHover, isPressed: configuration.isPressed)
+        YourComponentBody(with: interactionState) // Define your style depending to the state
+        #if !os(watchOS) &amp;&amp; !os(tvOS)
+           .onHover { isHover in
+               self.isHover = isHover
+           }
+        #endif
+    }
+}
+
+ // Then define your component
+ struct MyTappableComponent: View {
+
+    var body: some View {
+        MyTappableComponentBody()
+            .buttonStyle(MyTappableComponentButtonStyle())
+    }
+ }
+</code></pre><blockquote class="aside since"><p class="label">Since</p><p>OUDS 2.3.0</p></blockquote><h2>Topics</h2><h3>Enumeration Cases</h3><ul><li><a href="disabled/index.html"><code>case disabled</code><p>The user cannot interact with the component</p></a></li><li><a href="enabled/index.html"><code>case enabled</code><p>User can interact with the component</p></a></li><li><a href="hover/index.html"><code>case hover</code><p>The component is hovered, e.g. with an a11y hardware or a mouse</p></a></li><li><a href="pressed/index.html"><code>case pressed</code><p>The component is being pressed</p></a></li><li><a href="readonly/index.html"><code>case readOnly</code><p>The component is not disabled but user cannot interact with it still. Almost enabled.</p></a></li></ul><h3>Initializers</h3><ul><li><a href="init(isenabled:ishover:ispressed:isreadonly:)/index.html"><code>init(isEnabled: Bool, isHover: Bool, isPressed: Bool, isReadOnly: Bool)</code><p>Create the state according to flags.</p></a></li></ul></article></noscript><div id="app"></div></body></html>

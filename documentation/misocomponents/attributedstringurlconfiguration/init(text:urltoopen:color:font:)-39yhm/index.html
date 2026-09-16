@@ -1,0 +1,11 @@
+<!doctype html><html lang="en-US" class="no-js"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><link rel="icon" href="/favicon.ico"><link rel="mask-icon" href="/favicon.svg" color="#333333"><title>init(text:urlToOpen:color:font:)</title><script>var baseUrl = "/"</script><script defer="defer" src="/js/chunk-vendors.0b7dc663.js"></script><script defer="defer" src="/js/index.b232e9de.js"></script><link href="/css/index.19043b1e.css" rel="stylesheet"><meta content="Defines for the given  `text` the style to apply. Will associate to the text a `URL` to open on tap, if defined." name="description"/></head><body data-color-scheme="auto"><noscript><article><section><ul><li><a href="../../index.html">Components</a></li><li><a href="../index.html">AttributedStringUrlConfiguration</a></li><li>init(text:urlToOpen:color:font:)</li></ul><p>Initializer</p><h1>init(text:urlToOpen:color:font:)</h1><p>Defines for the given  <code>text</code> the style to apply. Will associate to the text a <code>URL</code> to open on tap, if defined.</p><pre><code>init(text: String? = nil, urlToOpen: URL? = nil, color: Color?, font: Font)</code></pre></section><h2>Parameters</h2><dl><dt>text</dt><dd><p>The text to display as hyperlink, default set to <code>nil</code></p></dd><dt>urlToOpen</dt><dd><p>The link to open on tap on the text, default set to <code>nil</code></p></dd><dt>color</dt><dd><p>The color to apply to the text as URL</p></dd><dt>font</dt><dd><p>The font to apply to the text as URL</p></dd></dl><h2>Discussion</h2><pre class="swift"><code>    // Default configuration for any hyperlink not managed
+    AttributedStringUrlConfiguration(color: someColor, font: someFont)
+
+    // Configuration for a hyperlink with a text
+    // More for Markdown cases
+    AttributedStringUrlConfiguration(text: "Privacy policy", color: someColor, font: someFont)
+
+    // Configuration to add on a text and hyperlink to open on tap
+    // More for programmatic case
+    AttributedStringUrlConfiguration(text: "Privacy policy", urlToOpen: someRemoteOrLocalUrl, color: someColor, font: someFont)
+</code></pre></article></noscript><div id="app"></div></body></html>

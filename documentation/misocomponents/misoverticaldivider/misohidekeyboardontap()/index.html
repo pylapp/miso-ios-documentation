@@ -1,0 +1,7 @@
+<!doctype html><html lang="en-US" class="no-js"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><link rel="icon" href="/favicon.ico"><link rel="mask-icon" href="/favicon.svg" color="#333333"><title>misoHideKeyboardOnTap()</title><script>var baseUrl = "/"</script><script defer="defer" src="/js/chunk-vendors.0b7dc663.js"></script><script defer="defer" src="/js/index.b232e9de.js"></script><link href="/css/index.19043b1e.css" rel="stylesheet"><meta content="Dismisses the software keyboard when the user taps anywhere outside a text input field." name="description"/></head><body data-color-scheme="auto"><noscript><article><section><ul><li><a href="../../index.html">Components</a></li><li><a href="../index.html">MISOVerticalDivider</a></li><li>misoHideKeyboardOnTap()</li></ul><p>Instance Method</p><h1>misoHideKeyboardOnTap()</h1><p>Dismisses the software keyboard when the user taps anywhere outside a text input field.</p><pre><code>@MainActor func misoHideKeyboardOnTap() -&gt; some View
+</code></pre></section><h2>Discussion</h2><p>Apply this modifier on the parent view containing an <code>MISOTextInput</code> or <code>MISOTextArea</code> for example.</p><pre class="swift"><code>VStack {
+    MISOTextInput(label: "Email", text: $email)
+    MISOTextInput(label: "Name", text: $name)
+}
+.misoHideKeyboardOnTap()
+</code></pre></article></noscript><div id="app"></div></body></html>

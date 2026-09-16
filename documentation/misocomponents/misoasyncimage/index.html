@@ -1,0 +1,19 @@
+<!doctype html><html lang="en-US" class="no-js"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><link rel="icon" href="/favicon.ico"><link rel="mask-icon" href="/favicon.svg" color="#333333"><title>MISOAsyncImage</title><script>var baseUrl = "/"</script><script defer="defer" src="/js/chunk-vendors.0b7dc663.js"></script><script defer="defer" src="/js/index.b232e9de.js"></script><link href="/css/index.19043b1e.css" rel="stylesheet"><meta content="``doc://MISOComponents/documentation/MISOComponents/MISOAsyncImage`` is an async image component with built-in caching support. It loads images from URLs and caches them in memory and on disk for optimal performance." name="description"/></head><body data-color-scheme="auto"><noscript><article><section><ul><li><a href="../index.html">Components</a></li><li>MISOAsyncImage</li></ul><p>Structure</p><h1>MISOAsyncImage</h1><p><a href="."><code>MISOAsyncImage</code></a> is an async image component with built-in caching support. It loads images from URLs and caches them in memory and on disk for optimal performance.</p><ul id="availability"><li>iOS 15.0+</li><li>macOS 13.0+</li><li>tvOS 16.0+</li><li>visionOS 1.0+</li><li>watchOS 11.0+</li></ul><pre><code>@MainActor struct MISOAsyncImage&lt;Content&gt; where Content : View</code></pre></section><h2>Overview</h2><p>This component mirrors the API of <code>AsyncImage</code> but adds caching functionality.</p><h2>Features</h2><ul><li><p><b>Automatic caching</b>: Images are cached in memory (<code>NSCache</code>) and on disk</p></li><li><p><b>Same API as SwiftUI.AsyncImage</b>: Use it as a drop-in replacement</p></li><li><p><b>Flexible content customization</b>: Transform the loaded image with custom views</p></li></ul><h2>Code samples</h2><pre class="swift"><code>    // Basic usage (like SwiftUI.AsyncImage)
+    MISOAsyncImage(url: URL(string: "https://example.com/photo.png"))
+
+    // With content transformation and placeholder
+    MISOAsyncImage(url: url) { image in
+        image.resizable()
+    } placeholder: {
+        ProgressView()
+    }
+
+    // With phases for full control
+    MISOAsyncImage(url: url) { phase in
+        switch phase {
+        case .empty: ProgressView()
+        case .success(let image): image.resizable()
+        case .failure: Image(systemName: "photo")
+        }
+    }
+</code></pre><blockquote class="aside since"><p class="label">Since</p><p>OUDS 3.0.0</p></blockquote><h2>Topics</h2><h3>Initializers</h3><ul><li><a href="init(url:)/index.html"><code>init(url: URL?)</code><p>Creates an async image with caching support.</p></a></li><li><a href="init(url:content:)/index.html"><code>init(url: URL?, content: (ImageLoadPhase) -&gt; Content)</code><p>Creates an async image with caching support using phase-based content.</p></a></li><li><a href="init(url:content:placeholder:)/index.html"><code>init(url: URL?, content: (Image) -&gt; Content, placeholder: () -&gt; some View)</code><p>Creates an async image with caching support using custom content and placeholder.</p></a></li></ul><h3>Instance Properties</h3><ul><li><a href="body/index.html"><code>var body: some View</code></a></li></ul></article></noscript><div id="app"></div></body></html>

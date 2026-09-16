@@ -1,0 +1,24 @@
+<!doctype html><html lang="en-US" class="no-js"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><link rel="icon" href="/favicon.ico"><link rel="mask-icon" href="/favicon.svg" color="#333333"><title>Dialogs</title><script>var baseUrl = "/"</script><script defer="defer" src="/js/chunk-vendors.0b7dc663.js"></script><script defer="defer" src="/js/index.b232e9de.js"></script><link href="/css/index.19043b1e.css" rel="stylesheet"><meta content="Some components can be used for dialogs." name="description"/></head><body data-color-scheme="auto"><noscript><article><section><ul><li><a href="../index.html">Components</a></li><li>Dialogs</li></ul><p>Article</p><h1>Dialogs</h1><p>Some components can be used for <b>dialogs</b>.</p></section><h2>Overview</h2><p>Dialogs components are UI elements that display information, system feedback or status changes.</p><h3>Alert Message</h3><p><a href="../misoalertmessage/index.html"><code>MISOAlertMessage</code></a> is a UI element that displays system feedback, status changes or required action; throughout detailed, prominent, persistent and actionable communication. Alert message includes functional icon and semantic colour, and may include as well a close button and/or action link.</p><p><a href="../misoalertmessage/index.html"><code>MISOAlertMessage</code></a> does not disappear automatically and remains visible until dismissed or resolved by the user.</p><pre class="swift"><code>    // A basic positive alert message with text and badge
+    MISOAlertMessage(label: "Label")
+
+    // A more complex alert message for warning status with a description and a close action
+    // to dismiss the message.
+    MISOAlertMessage(label: "Warning", status: .warning, description: "Some details about the warning") {
+        // Do some tasks here to dismiss the alert message when clicked
+    }
+        
+    // Add a custom icon for accent and neutral status
+    // with original rendering mode (to avoid tints) or not.
+    // By default, tinted, template mode.
+    MISOAlertMessage(label: "Label", status: .accent(image: MISOImage(asset: Image("ic_heart"))))
+    MISOAlertMessage(label: "Label", status: .neutral(image: MISOImage(asset: Image("ic_heart"), renderingMode: .original)))
+</code></pre><h3>Inline Alert</h3><p><a href="../misoinlinealert/index.html"><code>MISOInlineAlert</code></a> is a lightweight UI element, placed in the content flow, that displays information, system feedback, status changes throughout short, prominent, persistent and non actionable communication. <a href="../misoinlinealert/index.html"><code>MISOInlineAlert</code></a> includes functional icon and semantic colour, and does not include a close button and/or action link. Inline alert does not disappear and remains visible.</p><pre class="swift"><code>    // An inline alert with a label and the default neutral status
+    MISOInlineAlert(label: "Label")
+
+    // An inline alert
+    MISOInlineAlert(label: "Warning", status: .warning)
+
+    // Add a custom icon for accent and neutral status
+    MISOInlineAlert(label: "Label", status: .accent(image: MISOImage(asset: Image("ic_heart"))))
+    MISOInlineAlert(label: "Label", status: .neutral(image: MISOImage(asset: Image("ic_heart"))))
+</code></pre></article></noscript><div id="app"></div></body></html>

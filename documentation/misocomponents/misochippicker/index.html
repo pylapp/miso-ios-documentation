@@ -1,0 +1,36 @@
+<!doctype html><html lang="en-US" class="no-js"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><link rel="icon" href="/favicon.ico"><link rel="mask-icon" href="/favicon.svg" color="#333333"><title>MISOChipPicker</title><script>var baseUrl = "/"</script><script defer="defer" src="/js/chunk-vendors.0b7dc663.js"></script><script defer="defer" src="/js/index.b232e9de.js"></script><link href="/css/index.19043b1e.css" rel="stylesheet"><meta content="A picker allowing to expose several filter chips and proposing single or multiple selections." name="description"/></head><body data-color-scheme="auto"><noscript><article><section><ul><li><a href="../index.html">Components</a></li><li>MISOChipPicker</li></ul><p>Structure</p><h1>MISOChipPicker</h1><p>A picker allowing to expose several <i>filter chips</i> and proposing single or multiple selections.</p><ul id="availability"><li>iOS 15.0+</li><li>macOS 13.0+</li><li>visionOS 1.0+</li></ul><pre><code>@MainActor struct MISOChipPicker&lt;Tag&gt; where Tag : Hashable</code></pre></section><h2>Overview</h2><p>Each chip contains a “tag”, i.e. a supposed to be unique value. The picker will expose choosen values through this “tag”. It has also some configuration elements which will override the one applied to nested <a href="../misofilterchip/index.html"><code>MISOFilterChip</code></a>.</p><h2>Accessibility considerations</h2><p><i>Voice Over</i> will use several elements to describe the component. The picker itself does no have any defined accessiiblity value, label or identifier ; it remains in the users hands to define which one will be used. However if defined in the <a href="../misochippickerdata/index.html"><code>MISOChipPickerData</code></a> the items inside the picker will have such accessibility identifiers.</p><h2>Code samples</h2><pre class="swift"><code>    // Define the elements to display in filter chip using MISOChipPickerData.
+    enum Drink: String, CaseIterable {
+        case virginHolyLava, ipaBeer, mineralWater
+    }
+
+    var someDataToPopulate: [MISOChipPickerData&lt;Drink&gt;] {
+        [
+            MISOChipPickerData(tag: Drink.virginHolyLava,
+                               layout: .textAndImage("Virgin Holy Lava", image: MISOImage(asset: Image(systemName: "flame")))),
+
+            MISOChipPickerData(tag: Drink.ipaBeer,
+                               layout: .textAndImage("IPA Beer", image: MISOImage(asset: Image(systemName: "dog.fill")))),
+
+            MISOChipPickerData(tag: Drink.mineralWater,
+                               layout: .textAndImage("Mineral water", image: MISOImage(asset: Image(systemName: "waterbottle.fill")))),
+        ]
+    }
+
+    /// Single selection case
+
+    // Prepare the selection, with a value previously selected
+    // Use the data and the binding for the picker.
+    @State var selection: Drink = .mineralWater
+
+    // Here the picker with title, selection and data
+    MISOChipPicker(title: "Select a drink", selection: $selection, chips: someDataToPopulate)
+
+    /// Multiple selection case
+
+    // Prepare the selection, with a value previously selected
+    // Use the data and the binding for the picker.
+    @State var selections: [Drink] = [.mineralWater]
+
+    // Here the picker with title, selection and data
+    MISOChipPicker(title: "Select a drink", selections: $selections, chips: someDataToPopulate)
+</code></pre><blockquote class="aside since"><p class="label">Since</p><p>OUDS 0.17.0</p></blockquote><h2>Topics</h2><h3>Initializers</h3><ul><li><a href="init(title:selection:chips:itemsspacing:)-31j3k/index.html"><code>init(title: String?, selection: Binding&lt;Tag?&gt;, chips: [MISOChipPickerData&lt;Tag&gt;], itemsSpacing: SpaceSemanticToken?)</code><p>Defines the single selection picker view which displays using <a href="../misofilterchip/index.html"><code>MISOFilterChip</code></a> view the <a href="../misochippickerdata/index.html"><code>MISOChipPickerData</code></a>. The user will be able to choose zero or one option in this picker.</p></a></li><li><a href="init(title:selection:chips:itemsspacing:)-8fuc0/index.html"><code>init(title: String?, selection: Binding&lt;Tag&gt;, chips: [MISOChipPickerData&lt;Tag&gt;], itemsSpacing: SpaceSemanticToken?)</code><p>Defines the single selection picker view which displays using <a href="../misofilterchip/index.html"><code>MISOFilterChip</code></a> view the <a href="../misochippickerdata/index.html"><code>MISOChipPickerData</code></a> The user will be able to choose only one option in this picker.</p></a></li><li><a href="init(title:selections:chips:itemsspacing:)/index.html"><code>init(title: String?, selections: Binding&lt;[Tag]&gt;, chips: [MISOChipPickerData&lt;Tag&gt;], itemsSpacing: SpaceSemanticToken?)</code><p>Defines the multiple selection picker view which displays using <a href="../misofilterchip/index.html"><code>MISOFilterChip</code></a> view the <a href="../misochippickerdata/index.html"><code>MISOChipPickerData</code></a>. The user will be able to choose zero or one or seevral options in this picker.</p></a></li><li><a href="init(title:tablename:bundle:selection:chips:itemsspacing:)-1lbr4/index.html"><code>init(title: LocalizedStringKey?, tableName: String?, bundle: Bundle, selection: Binding&lt;Tag&gt;, chips: [MISOChipPickerData&lt;Tag&gt;], itemsSpacing: SpaceSemanticToken?)</code><p>Defines the single selection picker view with a localized title, looking up the key in the given bundle.</p></a></li><li><a href="init(title:tablename:bundle:selection:chips:itemsspacing:)-9jopu/index.html"><code>init(title: LocalizedStringKey?, tableName: String?, bundle: Bundle, selection: Binding&lt;Tag?&gt;, chips: [MISOChipPickerData&lt;Tag&gt;], itemsSpacing: SpaceSemanticToken?)</code><p>Defines the single selection picker view with a localized title, looking up the key in the given bundle.</p></a></li><li><a href="init(title:tablename:bundle:selections:chips:itemsspacing:)/index.html"><code>init(title: LocalizedStringKey?, tableName: String?, bundle: Bundle, selections: Binding&lt;[Tag]&gt;, chips: [MISOChipPickerData&lt;Tag&gt;], itemsSpacing: SpaceSemanticToken?)</code><p>Defines the multiple selection picker view with a localized title, looking up the key in the given bundle.</p></a></li></ul><h3>Instance Properties</h3><ul><li><a href="body/index.html"><code>var body: some View</code></a></li></ul></article></noscript><div id="app"></div></body></html>

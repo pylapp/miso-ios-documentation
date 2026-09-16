@@ -1,0 +1,16 @@
+<!doctype html><html lang="en-US" class="no-js"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><link rel="icon" href="/favicon.ico"><link rel="mask-icon" href="/favicon.svg" color="#333333"><title>MISOInputTag</title><script>var baseUrl = "/"</script><script defer="defer" src="/js/chunk-vendors.0b7dc663.js"></script><script defer="defer" src="/js/index.b232e9de.js"></script><link href="/css/index.19043b1e.css" rel="stylesheet"><meta content="Input tag is a UI element that allows to enter multiple values, each represented as a tag. As users type and submit values (usually by pressing enter, comma, or tab), each value is transformed into a tag. Input tag is often used for adding labels, categories, or participants." name="description"/></head><body data-color-scheme="auto"><noscript><article><section><ul><li><a href="../index.html">Components</a></li><li>MISOInputTag</li></ul><p>Structure</p><h1>MISOInputTag</h1><p>Input tag is a UI element that allows to enter multiple values, each represented as a tag. As users type and submit values (usually by pressing enter, comma, or tab), each value is transformed into a tag. Input tag is often used for adding labels, categories, or participants.</p><ul id="availability"><li>iOS 15.0+</li><li>macOS 13.0+</li><li>tvOS 16.0+</li><li>visionOS 1.0+</li><li>watchOS 11.0+</li></ul><pre><code>@MainActor struct MISOInputTag</code></pre></section><h2>Mentioned In</h2><ul><li><a href="../indicators/index.html">Indicators</a></li></ul><h2>Code samples</h2><pre class="swift"><code>    // Create an input tag
+    MISOInputTag("Label") {
+        // Do something, usually remove itself from a list
+    }
+
+    // Show in a list and remove when clicked
+    var names: [String] = [ "Foo", "Bar", "Wizz" ]
+
+    ForEach(names, id: \.self) { name in
+        MISOInputTag(label: name) {
+            if let index = names.firstIndex(of: name) {
+                names.remove(at: index)
+            }
+        }
+    }
+</code></pre><blockquote class="aside version"><p class="label">Version</p><p>1.2.0 (Figma component design version)</p></blockquote><blockquote class="aside since"><p class="label">Since</p><p>OUDS 0.21.0</p></blockquote><h2>Topics</h2><h3>Initializers</h3><ul><li><a href="init(label:action:)/index.html"><code>init(label: String, action: () -&gt; Void)</code><p>Creates an <code>MISOInputTag</code></p></a></li></ul><h3>Instance Properties</h3><ul><li><a href="body/index.html"><code>var body: some View</code></a></li></ul></article></noscript><div id="app"></div></body></html>

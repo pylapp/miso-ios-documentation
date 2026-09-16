@@ -1,0 +1,11 @@
+<!doctype html><html lang="en-US" class="no-js"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><link rel="icon" href="/favicon.ico"><link rel="mask-icon" href="/favicon.svg" color="#333333"><title>fill(_:style:)</title><script>var baseUrl = "/"</script><script defer="defer" src="/js/chunk-vendors.0b7dc663.js"></script><script defer="defer" src="/js/index.b232e9de.js"></script><link href="/css/index.19043b1e.css" rel="stylesheet"><meta content="Fills the shape with the color resolved from the given token, respecting the current color scheme." name="description"/></head><body data-color-scheme="auto"><noscript><article><section><ul><li><a href="../../../index.html">Components</a></li><li><a href="../../index.html">SwiftUICore</a></li><li><a href="../index.html">Shape</a></li><li>fill(_:style:)</li></ul><p>Instance Method</p><h1>fill(_:style:)</h1><p>Fills the shape with the color resolved from the given token, respecting the current color scheme.</p><pre><code>func fill(_ color: MultipleColorSemanticToken, style: FillStyle = FillStyle()) -&gt; some View
+</code></pre></section><h2>Parameters</h2><dl><dt>color</dt><dd><p>The token from which the fill color must be extracted</p></dd><dt>style</dt><dd><p>The style options for filling the shape (default: <code>FillStyle()</code>)</p></dd></dl><h2>Return Value</h2><p>A view with the shape filled with the resolved color</p><h2>Discussion</h2><p>This helper avoids manually calling <code>color(for:)</code> on a <code>MultipleColorSemanticToken</code>. The color scheme is read from the environment so the correct light or dark variant is automatically applied.</p><pre class="swift"><code>@Environment(\.theme) private var theme
+
+// Fill a shape with a token-based color
+Circle()
+    .fill(theme.colors.actionEnabled)
+
+// Fill with a custom fill style
+RoundedRectangle(cornerRadius: 8)
+    .fill(theme.colors.bgPrimary, style: FillStyle(eoFill: true))
+</code></pre></article></noscript><div id="app"></div></body></html>

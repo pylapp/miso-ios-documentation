@@ -1,0 +1,17 @@
+<!doctype html><html lang="en-US" class="no-js"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><link rel="icon" href="/favicon.ico"><link rel="mask-icon" href="/favicon.svg" color="#333333"><title>debugContrastRatio(_:_:_:_:_:)</title><script>var baseUrl = "/"</script><script defer="defer" src="/js/chunk-vendors.0b7dc663.js"></script><script defer="defer" src="/js/index.b232e9de.js"></script><link href="/css/index.19043b1e.css" rel="stylesheet"><meta content="Checks the contrast ratio between two tokens of color (`MultipleColorSemanticToken`) by comparing their light and dark values. Checks are done if end only if the `MISOWCAG21Ratios.misoDebugWCAG21Colors` flag is set to true. Otherwise nothing is done. If some ratios are not reached, displays a warning in logs." name="description"/></head><body data-color-scheme="auto"><noscript><article><section><ul><li><a href="../../../index.html">Tokens for semantics</a></li><li><a href="../../index.html">MISOFoundations</a></li><li><a href="../index.html">MISOWCAG21Ratio</a></li><li>debugContrastRatio(_:_:_:_:_:)</li></ul><p>Type Method</p><h1>debugContrastRatio(_:_:_:_:_:)</h1><p>Checks the contrast ratio between two tokens of color (<code>MultipleColorSemanticToken</code>) by comparing their <i>light</i> and <i>dark</i> values. <b>Checks are done if end only if the <code>MISOWCAG21Ratios.misoDebugWCAG21Colors</code> flag is set to true.</b> Otherwise nothing is done. If some ratios are not reached, displays a warning in logs.</p><pre><code>@discardableResult static func debugContrastRatio(_ lhs: MultipleColorSemanticToken, _ rhs: MultipleColorSemanticToken, _ target: MISOWCAG21Ratio.Target = .textual, _ criteria: MISOWCAG21Ratio.Criteria = .AA, _ source: String = #file) -&gt; Bool</code></pre></section><h2>Parameters</h2><dl><dt>lhs</dt><dd><p>One color with light and dark values to compare with <code>rhs</code></p></dd><dt>rhs</dt><dd><p>One color with light and dark values to compare with <code>lhs</code></p></dd><dt>target</dt><dd><p>Type of check to do (default set to <code>.textual</code>)</p></dd><dt>criteria</dt><dd><p>Requirement to consider (default set to <code>.AA</code>)</p></dd><dt>source</dt><dd><p>Default set to <code>#file</code> to log the calling file to ease debugging</p></dd></dl><h2>Return Value</h2><p><code>true</code> if light an dark colors pass tests, false otherwise or if flag not set</p><h2>Discussion</h2><pre class="swift"><code>// Assuming you use a color from a theme
+@Environment(\.theme) var theme
+// Assuming a component is used on a colored surface, get the surface color
+@Environment(\.misoSurfaceColor) var surfaceColor
+
+// Supposing tou want to apply "someColor" on a component on the colored surface
+let colorToApply = theme.colors.someColor
+
+// If you want to check for textual component
+MISOWCAG21Ratio.debugContrastRatio(colorToApply, surfaceColor)
+
+// If you want to check for non-textual component (i.e. images, chevrons, indicators, ...)
+MISOWCAG21Ratio.debugContrastRatio(colorToApply, surfaceColor, .nonTextual)
+
+// If you want to check the AAA requirements instead of AA (by default)
+MISOWCAG21Ratio.debugContrastRatio(colorToApply, surfaceColor, .AAA)
+</code></pre></article></noscript><div id="app"></div></body></html>
