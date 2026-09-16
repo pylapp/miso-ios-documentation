@@ -1,0 +1,31 @@
+# Classic
+*~
+.DS_Store
+**/.DS_Store
+
+# Produced by tool generating documentation, should be versionined in gh-pages branch
+/.build/
+
+# Produced by Brew
+/Brewfile.lock.json
+
+# Produced by CocoaPods
+/DesignToolbox/Pods/
+
+# Produced by Xcode
+/DerivedData/
+
+# Produced by Swift Package Manager
+/.swiftpm/xcode/xcshareddata/
+/.swiftpm/xcode/xcuserdata/
+/.swiftpm/xcode/package.xcworkspace/
+
+# Produced by Fastlane
+**/fastlane/*.env
+**/fastlane/report.xml
+**/fastlane/Preview.html
+**/fastlane/screenshots/**/*.png
+**/fastlane/test_output
+
+# Produced by .gitlab-ci.yml
+/.cache/

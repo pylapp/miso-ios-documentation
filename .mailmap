@@ -1,0 +1,6 @@
+# Git mailmap file
+# Keep it updated and alphabetically sorted
+# Allows to pack commits with several Git user.name and user.email configurations to the same person
+# Use "git shortlog -sne" for logs
+
+Pierre-Yves LAPERSONNE <dev@pylapersonne.info> Pierre-Yves Lapersonne <dev@pylapersonne.info>
