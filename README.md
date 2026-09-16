@@ -28,7 +28,7 @@
 
 ## 🔒 Data and privacy
 
-The OMISO library is a Software Development Kit (SDK) that allows developpers to create iOS apps.
+The MISO library is a Software Development Kit (SDK) that allows developpers to create iOS apps.
 As such:
 - this SDK does not handle any personnal data
 - this SDK does not require any device permission to work
