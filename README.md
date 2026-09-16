@@ -26,13 +26,6 @@
 > [!NOTE]
 > This repository contains only the technical documentation generated from the MISO iOS Swift Package codebase.
 
-## 🔒 Data and privacy
-
-The MISO library is a Software Development Kit (SDK) that helps developers to create iOS apps.
-As such:
-- this SDK does not handle any personal data
-- this SDK does not require any device permission to work
-
 ## ⚖️ Copyright and license
 
 Released under the [MIT License](https://github.com/pylapp/miso-ios-documentation/blob/main/LICENSE)
